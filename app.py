@@ -2,7 +2,6 @@ from flask import Flask, render_template, request
 import tensorflow as tf
 import pickle
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-import pickle
 
 # Load model and tokenizer
 model = tf.keras.models.load_model("spam_model.h5")
