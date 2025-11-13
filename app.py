@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 import tensorflow as tf
 import pickle
 from tensorflow.keras.preprocessing.sequence import pad_sequences
+import pickle
 
 # Load model and tokenizer
 model = tf.keras.models.load_model("spam_model.h5")
@@ -36,5 +37,8 @@ def predict():
         email_text=email_text
     )
 
+import os
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
